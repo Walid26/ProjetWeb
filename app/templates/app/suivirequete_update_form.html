@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Mise à jour suivi{% endblock %}
+
+{% block content %}
+
+<h1>Mettre à jour votre suivi</h1>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Mettre à jour" />
+</form>
+
+{% endblock %}

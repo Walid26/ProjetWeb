@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Mes suivis{% endblock %}
+
+{% block content %}
+
+<h1>Mes suivis</h1>
+
+<table id="mes_suivis">
+	{% for suivi in mes_suivis %}
+	<p>{{ suivi.requeteSuiviRequete }}</p>
+	<p>{{ suivi.satisfactionSuiviRequete }}</p>
+	<p>{{ suivi.repondeurSuiviRequete }}</p>
+	<p>{{ suivi.commentaireSuiviRequete }}</p>
+	{% empty %}
+		<p>Aucun suivi</p>
+	{% endfor %}
+
+{% endblock %}

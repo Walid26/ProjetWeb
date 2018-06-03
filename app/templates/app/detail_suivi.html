@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Détail suivi{% endblock %}
+
+{% block content %}
+
+<h1>Suivi de la requête : {{ requete.titreRequete }}</h1>
+
+<p>{{ suivi.satisfactionSuivi }}</p>
+<p>{{ suivi.commentaireSuivi }}</p>
+<p><a href="{% url 'editer_suivi' requete.idRequete %}">Modifier le suivi</a></p>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Réaliser le suivi votre requête{% endblock %}
+
+{% block content %}
+
+<h1>Renseigner le suivi de votre requête</h1>
+
+<form action="{% url 'suivi' idRequete %}" method="post">
+	{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Soumettre"/>
+</form>
+
+{% endblock %}

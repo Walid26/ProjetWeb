@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block content %}
+
+<h1> Profil </h1>
+
+</p>Nom d'utilisateur : {{ profil.username }}</p>
+</p>Email : {{ profil.email }}</p>
+</p>Fiabilité : {{ profil.fiabiliteUtilisateur }}</p>
+</p>Région : {{ profil.zoneUtilisateur }}</p>
+
+<td><a href="{% url 'liste_requete' %}">Retour aux requêtes</a><td>
+
+{% endblock %}

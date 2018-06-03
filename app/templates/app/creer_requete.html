@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Création de votre requête{% endblock %}
+
+{% block content %}
+
+<h1>Créer une requête</h1>
+
+<form action="{% url 'creer_requete' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Soumettre" />
+</form>
+
+{% endblock %}

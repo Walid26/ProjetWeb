@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Requêtes{% endblock %}
+
+{% block content %}
+
+<h1>Dernières requêtes</h1>
+
+<p><a href="{% url 'creer_requete' %}">Faire une requête</a> <p align = "left"><a href="{% url 'mes_requetes' %}">Voir mes requêtes</a>
+
+<table class="table table-striped table-hover ">
+	<thead>
+	<tr>
+		<th>Titre</th>
+		<th>Aperçu</th>
+		<th>Catégorie</th>
+		<th>Rémunération</th>
+		<th>Statut</th>
+		<th>Demandeur</th>
+		<th>Plus de détails</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for requete in requetes %}
+		</tr>
+			<td>{{ requete.titreRequete }}</td>
+			<td>{{ requete.texteRequete|truncatewords_html:100 }}</td>
+			<td>{{ requete.categorieRequete }}</td>
+			<td>{{ requete.remunerationRequete }}</td>
+			<td>{{ requete.statutRequete }}</td>
+			<td><a href="{% url 'profil' username=requete.demandeurRequete %}">Voir le profil</a></td>
+			<td><a href="{% url 'detail_requete' pk=requete.idRequete %}">Détails</a></td>
+		</tr>
+	{% empty %}
+		<p>Aucune demande.</p>
+	{% endfor %}
+	<tbody>
+	</table>
+
+{% if is_paginated %}
+    <div class="pagination">
+           {% if page_obj.has_previous %}
+               <a href="?page={{ page_obj.previous_page_number }}">Précédent</a> —
+           {% endif %}
+           Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }} 
+           {% if page_obj.has_next %}
+              — <a href="?page={{ page_obj.next_page_number }}">Suivant</a>
+           {% endif %}
+    </div>
+{% endif %}
+
+{% endblock %}

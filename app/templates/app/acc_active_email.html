@@ -1,0 +1,6 @@
+{% autoescape off %}
+Bienvenue sur AppLance {{ Utilisateur.pseudoUtilisateur }},
+Veuillez cliquer sur le lien ci-dessous pour confirmer votre inscription,
+
+http://{{ domain }}{% url 'activation' uidb64=uid token=token %}
+{% endautoescape %}

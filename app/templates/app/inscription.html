@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+
+<h1>Inscription</h1>
+
+<form action="{% url 'inscription' %}" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Soumettre" />
+</form>
+
+{% endblock %}

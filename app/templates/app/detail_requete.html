@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Détail requête{% endblock %}
+
+{% block content %}
+
+<h1>{{ requete.titreRequete }} <span class="small">dans la catégorie : {{ requete.categorieRequete }}.</span></h1>
+
+<p class="infos">Demandée par {{ requete.demandeurRequete }}, le {{ requete.dateRequete|date:"DATE_FORMAT" }}</p>
+
+<p class="infos">Rémunération : {{ requete.remunerationRequete }}</p>
+	
+<div class="contenu">{{ requete.texteRequete|linebreaks }}</div>
+
+<p><a href="{% url 'liste_requete' %}">Retour aux requêtes</a>
+
+{% endblock %}

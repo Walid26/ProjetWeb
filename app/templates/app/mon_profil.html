@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Votre profil{% endblock %}
+
+{% block content %}
+
+<h1>Mon profil</h1>
+
+</p>Nom d'utilisateur : {{ profil.username }}</p>
+</p>Email : {{ profil.email }}</p>
+</p>Fiabilité : {{ profil.fiabiliteUtilisateur }}</p>
+</p>Région : {{ profil.zoneUtilisateur }}</p>
+
+{% endblock %}
